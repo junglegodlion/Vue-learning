@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>使用 props 属性传递参数</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="vue">
+    <ul>
+        <my-li v-for="name in names" v-bind:name="name"></my-li>
+    </ul>
+</div>
+<script type="text/javascript">
+    Vue.component(
+        "my-li",{
+            props: ['name'],
+            template: "<li style='color: red'>{{name}}</li>"
+        }
+    );
+    var vm = new Vue({
+        el: '#vue',
+        data: {
+            names: ["jungle","junglegod","junglegodlion"]
+        }
+    });
+</script>
+</body>
+</html>

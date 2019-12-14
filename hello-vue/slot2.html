@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue 内容分发与自定义事件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="vue">
+ <todo>
+     <todo-title slot="todo-title" v-bind:title="title"></todo-title>
+     <todo-items slot="todo-items" v-for="item in items" v-bind:item="item"></todo-items>
+ </todo>
+</div>
+<script type="text/javascript">
+    Vue.component(
+        "todo",{
+            template: "<div>\
+                           <slot name='todo-title'></slot>\
+                            <ul>\
+                                 <slot name='todo-items'></slot>\
+                            </ul>\
+                       </div>\
+                            "
+        }
+    );
+    Vue.component(
+       "todo-title",{
+           props: ["title"],
+           template: "<h1>{{title}}</h1>"
+        }
+    );
+    Vue.component(
+        "todo-items",{
+            props: ["item"],
+            template: "<li>{{item}}</li>"
+        }
+    );
+
+    var vm = new Vue({
+        el: '#vue',
+        data: {
+            title: "最新动漫",
+            items: [
+                "鬼灭之刃",
+                "少年歌行",
+                "一人之下"
+            ]
+        }
+    });
+</script>
+</body>
+</html>

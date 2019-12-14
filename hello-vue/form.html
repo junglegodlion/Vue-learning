@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="vue">
+    <input type="text" v-model="message"/> 当行文本：{{message}}
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#vue',
+        data: {
+            message: "Hello Vue"
+        }
+    });
+</script>
+</body>
+</html>

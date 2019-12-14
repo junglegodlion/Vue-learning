@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue 内容分发与自定义事件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="vue">
+ <todo>
+     <todo-title slot="todo-title"></todo-title>
+     <todo-items slot="todo-items"></todo-items>
+ </todo>
+</div>
+<script type="text/javascript">
+    Vue.component(
+        "todo",{
+            template: "<div>\
+                           <slot name='todo-title'></slot>\
+                            <ul>\
+                                 <slot name='todo-items'></slot>\
+                            </ul>\
+                       </div>\
+                            "
+        }
+    );
+    Vue.component(
+       "todo-title",{
+           template: "<h1>待办事项</h1>"
+        }
+    );
+    Vue.component(
+        "todo-items",{
+            template: "<li>待办列表</li>"
+        }
+    );
+
+    var vm = new Vue({
+        el: '#vue'
+    });
+</script>
+</body>
+</html>

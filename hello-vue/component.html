@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title># Vue 组件基础</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="vue">
+    <ul>
+        <my-li></my-li>
+    </ul>
+</div>
+<script type="text/javascript">
+    Vue.component(
+        "my-li",{
+            template: "<li style='color: red'>Hello</li>"
+        }
+    );
+    var vm = new Vue({
+        el: '#vue'
+    });
+</script>
+</body>
+</html>
