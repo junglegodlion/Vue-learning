@@ -2996,10 +2996,10 @@ const state = sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getIte
 
 ### 创建 user 模块
 
-在 `store` 目录下创建一个名为 `user` 的目录并创建一个名为 `user.js` 的文件，代码如下：
+在 `store` 目录下创建一个名为 `user` 的目录并创建一个名为 `User.js` 的文件，代码如下：
 
 ```js
-const user = {
+const User = {
   // 因为模块化了，所以解决刷新问题的代码需要改造一下
   state: sessionStorage.getItem('userState') ? JSON.parse(sessionStorage.getItem('userState')) : {
     user: {
@@ -3022,7 +3022,7 @@ const user = {
     }
   }
 };
-export default user;
+export default User;
 ```
 
 ### 修改 store/index.js

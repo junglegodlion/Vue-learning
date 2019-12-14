@@ -1,4 +1,4 @@
-const user = {
+const User = {
   // 因为模块化了，所以解决刷新问题的代码需要改造一下
   state: sessionStorage.getItem('userState') ? JSON.parse(sessionStorage.getItem('userState')) : {
     user: {
@@ -21,4 +21,4 @@ const user = {
     }
   }
 };
-export default user;
+export default User;
