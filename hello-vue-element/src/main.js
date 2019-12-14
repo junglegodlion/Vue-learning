@@ -39,6 +39,7 @@ router.beforeEach((to, form, next) => {
   else if (to.path == '/login') {
     if (isLogin == 'true') {
       // 跳转到首页
+      console.log()
 
       next({path : '/main'});
     }
